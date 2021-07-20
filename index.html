@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="card">
+        <p>Original image</p>
+        <img id="img"/>
+        <p>or select custom image:</p>
+        <input id="input" type="file" />
+      </div>
+      <!-- Brightness -->
+      <div class="card">
+        <p>Brightness</p>
+        <div>
+          <label>
+            <input id="rangeBrightness" type="range" min="-255" max="255" value="0" />
+            <span id="valueBrightness">0</span>
+          </label>
+        </div>
+        <canvas id="canvasBrightness" height="16"></canvas>
+    </div>
+    <!-- Saturation -->
+    <div class="card">
+      <p>Saturation</p>
+      <div>
+        <label>
+          <input id="rangeSaturation" type="range" min="-255" max="255" value="0" />
+          <span id="valueSaturation">0</span>
+        </label>
+      </div>
+      <canvas id="canvasSaturation" height="16"></canvas>
+    </div>
+    <!-- Contrast -->
+    <div class="card">
+      <p>Contrast</p>
+      <div>
+        <label>
+          <input id="rangeContrast" type="range" min="-255" max="255" value="0" />
+          <span id="valueContrast">0</span>
+        </label>
+      </div>
+      <canvas id="canvasContrast" height="16"></canvas>
+    </div>
+    <!-- Conv -->
+    <div>
+      <p>Convolution matrix</p>
+      <div class="matrix">
+        <input id="kernel11" type="text" value="0" />
+        <input id="kernel12" type="text" value="0" />
+        <input id="kernel13" type="text" value="0" />
+        <br/>
+        <input id="kernel21" type="text" value="0" />
+        <input id="kernel22" type="text" value="1" />
+        <input id="kernel23" type="text" value="0" />
+        <br/>
+        <input id="kernel31" type="text" value="0" />
+        <input id="kernel32" type="text" value="0" />
+        <input id="kernel33" type="text" value="0" />
+      </div>
+      <div>
+        Div: <input id="div" type="text" value="1" />
+        &nbsp;Offset: <input id="offset" type="text" value="0" />
+      </div>
+      <div>
+        Presets:
+        <select id="presets">
+          <option value="0 0 0 0 1 0 0 0 0 1 0" selected>Identity</option>
+          <option value="1 1 1 1 1 1 1 1 1 9 0">Blur</option>
+          <option value="1 2 1 2 4 2 1 2 1 16 0">Gaussian blur</option>
+          <option value="1 0 0 0 0 0 0 0 1 2 0">Motion blur</option>
+          <option value="0 -1 0 -1 5 -1 0 -1 0 1 0">Sharpen (strong)</option>
+          <option value="0 -0.2 0 -0.2 1.8 -0.2 0 -0.2 0 1 0">Sharpen (soft)</option>
+          <option value="-2 -1 0 -1 0 1 0 1 2 1 0">Edge detection</option>
+          <option value="-2 -1 0 -1 0 1 0 1 2 1 128">Relief 1</option>
+          <option value="2 1 0 1 0 -1 0 -1 -2 1 128">Relief 2</option>
+          <option value="-2 -1 0 -1 1 1 0 1 2 1 0">Emboss</option>
+          <option value="0 0 0 0 -1 0 0 0 0 1 255">Negate</option>
+        </select>
+      </div>
+      <canvas id="canvasConvolutionMatrix" height="16"></canvas>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./script.js"></script>
+    
+</body>
+</html>
+
